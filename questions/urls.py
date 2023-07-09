@@ -1,8 +1,11 @@
 from django.urls import path
+from rest_framework.routers import SimpleRouter
 
-from .views import QuestionList, QuestionDetail
+from .views import UserViewSet, QuestionViewSet
 
-urlpatterns = [
-    path("<int:pk>/", QuestionDetail.as_view(), name="question_detail"),
-    path("", QuestionList.as_view(), name="question_list"),
-]
+router = SimpleRouter()
+
+router.register("users", UserViewSet, basename="users")
+router.register("", QuestionViewSet, basename="questions")
+
+urlpatterns = router.urls
