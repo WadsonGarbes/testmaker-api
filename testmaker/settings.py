@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    "drf_spectacular",
     # Local
     "accounts.apps.AccountsConfig",
     "questions.apps.QuestionsConfig",
@@ -58,6 +59,17 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "TestMaker API",
+    "DESCRIPTION": "API de questões de Provas",
+    "VERSION": "1.0.0",
+    "SCHEMA_PATH_PREFIX": "/api/v1",
+    "SERVE_INCLUDE_SCHEMA": True,
+    "CONTACT": {"name": "Wadson", "email": "garbesdev@gmail.com"},
+    "LICENSE": {"name": "MIT"},
 }
 
 MIDDLEWARE = [

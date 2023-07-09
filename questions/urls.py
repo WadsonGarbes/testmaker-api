@@ -6,6 +6,6 @@ from .views import UserViewSet, QuestionViewSet
 router = SimpleRouter()
 
 router.register("users", UserViewSet, basename="users")
-router.register("", QuestionViewSet, basename="questions")
+router.register("questions", QuestionViewSet, basename="questions")
 
 urlpatterns = router.urls
